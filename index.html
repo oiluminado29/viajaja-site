@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ViajaJá - Seu destino começa agora</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #ffffff;
+      color: #2F2F2F;
+    }
+    header {
+      background-color: #ffffff;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 20px 40px;
+      border-bottom: 2px solid #eee;
+    }
+    .logo {
+      font-size: 24px;
+      font-weight: bold;
+      color: #00AADB;
+    }
+    nav a {
+      margin: 0 15px;
+      text-decoration: none;
+      color: #2F2F2F;
+      font-weight: 500;
+    }
+    .hero {
+      padding: 60px 20px;
+      background: linear-gradient(to right, #fff 50%, #FDC500 50%);
+      text-align: center;
+    }
+    .hero h1 {
+      font-size: 36px;
+      margin-bottom: 20px;
+    }
+    .search-form {
+      margin-top: 30px;
+    }
+    .search-form input, .search-form button {
+      padding: 10px;
+      font-size: 16px;
+      margin: 5px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+    }
+    .search-form button {
+      background-color: #00AADB;
+      color: white;
+      border: none;
+      cursor: pointer;
+    }
+    .ofertas {
+      padding: 40px 20px;
+      background-color: #f9f9f9;
+    }
+    .ofertas h2 {
+      text-align: center;
+      color: #2F2F2F;
+    }
+    .ofertas p {
+      text-align: center;
+      color: #666;
+    }
+    .cards {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      flex-wrap: wrap;
+      margin-top: 20px;
+    }
+    .card {
+      background-color: white;
+      border: 1px solid #ddd;
+      border-radius: 12px;
+      width: 250px;
+      padding: 20px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+      text-align: center;
+    }
+    .card h3 {
+      color: #00AADB;
+    }
+    .card p {
+      color: #444;
+    }
+    .login-form {
+      margin-top: 30px;
+      text-align: center;
+    }
+    .login-form input {
+      margin: 5px;
+      padding: 10px;
+      font-size: 16px;
+    }
+    .login-form button {
+      padding: 10px 20px;
+      background-color: #00AADB;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+    .boleto-option {
+      padding: 40px 20px;
+      text-align: center;
+      background-color: #fffbe6;
+    }
+    .boleto-option h2 {
+      color: #FDC500;
+    }
+    .boleto-option p {
+      max-width: 600px;
+      margin: 10px auto;
+      color: #333;
+    }
+    .simulador {
+      padding: 40px 20px;
+      text-align: center;
+    }
+    .simulador input {
+      padding: 10px;
+      font-size: 16px;
+      margin: 5px;
+    }
+    .simulador button {
+      padding: 10px 20px;
+      background-color: #00AADB;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+    .simulador p {
+      margin-top: 10px;
+      font-weight: bold;
+    }
+    footer {
+      background-color: #2F2F2F;
+      color: white;
+      text-align: center;
+      padding: 20px;
+    }
+  </style>
+  <script>
+    function simularParcelas() {
+      const valor = parseFloat(document.getElementById('valor').value);
+      const parcelas = parseInt(document.getElementById('parcelas').value);
+      if (!isNaN(valor) && !isNaN(parcelas) && parcelas > 0) {
+        const valorParcela = (valor / parcelas).toFixed(2);
+        document.getElementById('resultado').innerText = `Você pagará R$ ${valorParcela} por parcela.`;
+      } else {
+        document.getElementById('resultado').innerText = 'Insira valores válidos.';
+      }
+    }
+  </script>
+</head>
+<body>
+  <header>
+    <div class="logo">viajajá</div>
+    <nav>
+      <a href="#">Passagens</a>
+      <a href="#">Hospedagem</a>
+      <a href="#">Pacotes</a>
+      <a href="#">Ofertas</a>
+      <a href="#login">Login</a>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <h1>Seu destino começa agora.</h1>
+    <form class="search-form">
+      <input type="text" placeholder="Origem">
+      <input type="text" placeholder="Destino">
+      <input type="date">
+      <button type="submit">Buscar</button>
+    </form>
+  </section>
+
+  <section class="ofertas">
+    <h2>Ofertas imperdíveis</h2>
+    <p>As melhores promoções de viagem estão aqui. Viaje mais gastando menos!</p>
+    <div class="cards">
+      <div class="card">
+        <h3>Rio de Janeiro</h3>
+        <p>Passagens a partir de R$199 ida e volta</p>
+      </div>
+      <div class="card">
+        <h3>Salvador</h3>
+        <p>Pacotes com hotel desde R$799</p>
+      </div>
+      <div class="card">
+        <h3>Buenos Aires</h3>
+        <p>3 noites + voo por R$1.199</p>
+      </div>
+      <div class="card">
+        <h3>Maceió</h3>
+        <p>7 dias com tudo incluso por R$999</p>
+      </div>
+      <div class="card">
+        <h3>Orlando</h3>
+        <p>Pacote família a partir de R$2.499</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="boleto-option">
+    <h2>Parcele sua viagem no boleto!</h2>
+    <p>Agora você pode realizar a viagem dos seus sonhos com mais facilidade. Parcelamos sua compra em até 12x no boleto bancário, com aprovação rápida e sem necessidade de cartão de crédito.</p>
+    <p>Escolha seu destino, simule o parcelamento e viaje tranquilo. Aqui na ViajaJá, viajar é para todos!</p>
+  </section>
+
+  <section class="simulador">
+    <h2>Simule seu parcelamento</h2>
+    <input type="number" id="valor" placeholder="Valor total da viagem (R$)">
+    <input type="number" id="parcelas" placeholder="Número de parcelas">
+    <button onclick="simularParcelas()">Calcular</button>
+    <p id="resultado"></p>
+  </section>
+
+  <section id="login" class="login-form">
+    <h2>Login</h2>
+    <form>
+      <input type="email" placeholder="E-mail">
+      <input type="password" placeholder="Senha">
+      <button type="submit">Entrar</button>
+    </form>
+  </section>
+
+  <footer>
+    <p>&copy; 2025 ViajaJá. Todos os direitos reservados.</p>
+  </footer>
+</body>
+</html>
